@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  home_id: 1
+  price: 1.5
+  bought: false
+  bought_by: 1
+  name: MyString
+  info: MyString
+
+two:
+  user_id: 1
+  home_id: 1
+  price: 1.5
+  bought: false
+  bought_by: 1
+  name: MyString
+  info: MyString
