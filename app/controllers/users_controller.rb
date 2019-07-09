@@ -23,5 +23,7 @@ class UsersController < ApplicationController
     user.color = params[:color]
     user.pay_pal_me_link = params[:link]
     user.save
+
+    render json: user
   end
 end

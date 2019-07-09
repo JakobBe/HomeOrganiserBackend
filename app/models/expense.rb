@@ -3,4 +3,6 @@ class Expense < ApplicationRecord
 
   belongs_to :user
   belongs_to :home
+
+  scope :not_compensated, -> { where(compensated: false) }
 end

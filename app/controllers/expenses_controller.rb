@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
   def index
-    expenses = Expense.where(home_id: params[:home_id])
+    expenses = Expense.where(home_id: params[:home_id]).not_compensated
 
     render json: expenses
   end
@@ -15,6 +15,13 @@ class ExpensesController < ApplicationController
        shopping_item.save
     end
 
-    Expense.create(amount: params[:amount], user_id: params[:user_id], home_id: 1)
+    Expense.create(amount: params[:amount], user_id: params[:user_id], home_id: 1, compensated: false)
+  end
+
+  def update
+    expense = Expense.find(params[:id])
+
+    expense.compensated = true
+    expense.save
   end
 end
