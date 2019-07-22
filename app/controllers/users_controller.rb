@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create(email: params[:email], password: params[:password], name: params[:name], home_id: 1)
+    user = User.create(email: params[:email], password: params[:password], name: params[:name], home_id: 42)
 
     render json: user
   end
@@ -20,10 +20,25 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
 
-    user.color = params[:color]
-    user.pay_pal_me_link = params[:link]
-    user.save
+    color, link, home_id = params.values_at(:color, :link, :home_id)
+    
+    if color 
+      user.color = color
+    end
 
-    render json: user
+    if link
+      user.pay_pal_me_link = link
+    end
+
+    if home_id
+      user.home_id = home_id
+    end
+
+    if user.save
+      render json: {status: '200', user: user}
+    else
+      render json: {status: '400'}
+    end
+
   end
 end

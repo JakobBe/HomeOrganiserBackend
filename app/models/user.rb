@@ -6,6 +6,6 @@ class User < ApplicationRecord
   has_many :to_dos
   has_many :events
   has_many :shoppping_items
-  has_many :espenses
+  has_many :expenses
   belongs_to :home
 end

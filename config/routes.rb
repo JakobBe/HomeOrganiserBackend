@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   resources :events
   resources :shopping_items
   resources :expenses
+  resources :homes
 
-  get 'signup', to: 'users#create', as: 'signup'
+  post 'signup', to: 'users#create', as: 'signup'
   get 'login', to: 'sessions#create', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'to_dos/user/:id', to: 'to_dos#user_todos'
