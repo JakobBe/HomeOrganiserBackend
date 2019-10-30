@@ -14,8 +14,6 @@ class ExpensesController < ApplicationController
        shopping_item.save
     end
 
-    byebug
-
     Expense.create(amount: params[:amount], user_id: params[:user_id], home_id: params[:home_id], compensated: false)
   end
 
