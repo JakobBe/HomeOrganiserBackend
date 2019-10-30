@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create(email: params[:email], password: params[:password], name: params[:name], home_id: 42)
+    user = User.create(sub: params[:sub], name: params[:email], home_id: 42)
 
     render json: user
   end
